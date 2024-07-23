@@ -1,0 +1,22 @@
+>SETUP
+# UI buat tailwind?
+$ Logo?
+# Icon?
+# API?
+# FONT?
+# ASSET FOTO?
+# PAGE & COMPONENT?
+
+# Front end Login, Reg, Landing
+# Front end User home (search, card slider, )
+# Front end List
+
+>NEXT
+# Front end Login admin
+# Front end dashboard
+# Front end add wisata?
+
+>NEXT
+# Integrasi firebase pake ENV
+# Login & Register dengan context & token
+# TBA
