@@ -1,13 +1,11 @@
 >SETUP
-# UI buat tailwind?
-$ Logo?
+# Logo?
 # Icon?
 # API?
-# FONT?
 # ASSET FOTO?
-# PAGE & COMPONENT?
 
-# Front end Login, Reg, Landing
+>CURR
+# Front end Reg, Landing
 # Front end User home (search, card slider, )
 # Front end List
 
