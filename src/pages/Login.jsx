@@ -8,8 +8,15 @@ const Login = () => {
       <div className="flex items-center justify-center w-[36%]">
         <LoginForm />
       </div>
-      <div className="w-[64%]">
+      <div className="relative w-[64%]">
         <img src={bg} alt="Background" className="object-cover w-full h-full" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <img
+            src="https://qph.cf2.quoracdn.net/main-qimg-500f9439fcf5d771fe930f670849e490"
+            alt="logo"
+            className="relative z-10 w-1/4 shadow-2xl"
+          />
+        </div>
       </div>
     </div>
   );
