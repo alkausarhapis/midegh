@@ -1,11 +1,10 @@
 >SETUP
-# Logo?
-# Icon?
 # API?
 # ASSET FOTO?
 
 >CURR
-# Front end Reg, Landing
+# Front end Landing
+# Logo?
 # Front end User home (search, card slider, )
 # Front end List
 
