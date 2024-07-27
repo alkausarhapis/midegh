@@ -3,6 +3,7 @@
 # ASSET FOTO?
 
 >CURR
+# Rapihin FE landing page (ampas bat su)
 # Front end Landing
 # Logo?
 # Front end User home (search, card slider, )
