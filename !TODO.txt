@@ -1,5 +1,6 @@
 >SETUP
 # API?
+# UI mock up etc
 
 >CURR
 # Front end Landing
