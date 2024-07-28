@@ -1,20 +1,15 @@
 import React from "react";
-import { BiLogoTrello } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import icon from "../assets/navicon.png";
+
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between w-screen px-24 py-4 text-lg">
-      <div className="flex items-center">
-        <BiLogoTrello className="text-4xl text-primary" />
-        <h1 className="text-3xl font-bold text-primary">MIDEGH</h1>
-      </div>
+    <nav className="flex items-center justify-between w-screen px-24 py-3 text-lg">
+      <img src={icon} alt="" className="mr-2 w-44" />
 
       <ul className="flex justify-around gap-8 mr-4">
         <li>
-          <a
-            className="box-border py-3 border-b-2 hover:text-secondary"
-            href="#about"
-          >
+          <a className="text-tertiary hover:text-secondary" href="#about">
             About
           </a>
         </li>
@@ -30,16 +25,13 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <div className="flex items-center gap-4">
-        <Link
-          to={`/login`}
-          className="px-5 py-1 border-2 rounded-md border-opacity-30 text-primary border-primary hover:border-opacity-100"
-        >
+      <div className="flex items-center gap-5">
+        <Link to={`/login`} className="underline text-primary hover:opacity-75">
           Login
         </Link>
         <Link
           to={`/register`}
-          className="px-6 py-1 text-lg text-white border-2 rounded-md bg-primary border-primary hover:opacity-80"
+          className="px-6 py-1 text-lg text-white border-2 rounded-md shadow-md bg-primary border-primary hover:opacity-80 shadow-primary"
         >
           Register
         </Link>

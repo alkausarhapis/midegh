@@ -6,6 +6,7 @@ export default {
       primary: "#4ba3c3",
       secondary: "#000000",
       tertiary: "#96A3A6",
+      paragraph: "#747c92",
       highlight: "#ff5964",
       white: "#ffffff",
     },
