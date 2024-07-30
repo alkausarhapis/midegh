@@ -4,29 +4,10 @@ import icon from "../assets/navicon.png";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between w-screen px-24 py-3 text-lg">
+    <nav className="flex items-center justify-between py-2 text-lg px-14 max-w-screen">
       <img src={icon} alt="" className="mr-2 w-44" />
-
-      <ul className="flex justify-around gap-8 mr-4">
-        <li>
-          <a className="text-tertiary hover:text-secondary" href="#about">
-            About
-          </a>
-        </li>
-        <li>
-          <a className="hover:text-secondary text-tertiary" href="#popular">
-            Popular
-          </a>
-        </li>
-        <li>
-          <a className="hover:text-secondary text-tertiary" href="#feature">
-            Feature
-          </a>
-        </li>
-      </ul>
-
       <div className="flex items-center gap-5">
-        <Link to={`/login`} className="underline text-primary hover:opacity-75">
+        <Link to={`/login`} className="text-paragraph hover:opacity-75">
           Login
         </Link>
         <Link
