@@ -3,7 +3,9 @@
 # UI mock up etc
 
 >CURR
-# Front end Landing
+# Setup API unsplash
+# Hard code data gambarnya
+# Front end Landing (Pops)
 # Front end User home (search, card slider, )
 # Front end List
 
@@ -15,4 +17,5 @@
 >NEXT
 # Integrasi firebase pake ENV
 # Login & Register dengan context & token
+# Google login
 # TBA
