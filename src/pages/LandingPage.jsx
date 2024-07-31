@@ -11,6 +11,7 @@ import {
   BiSolidFilePlus,
 } from "react-icons/bi";
 import Footer from "../components/Footer";
+import Popular from "../components/Popular";
 
 const LandingPage = () => {
   return (
@@ -25,7 +26,10 @@ const LandingPage = () => {
         <div className="flex flex-col w-1/2 gap-10 ">
           <h1 className="font-bold capitalize text-7xl">
             Discover <span className="text-primary">places</span> through the
-            stories of fellow <span className="text-highlight">Travellers</span>
+            stories of fellow{" "}
+            <span className="relative inline-block before:block before:absolute before:-inset-0 before:-skew-y-1 before:bg-highlight">
+              <span className="relative text-white">travellers.</span>
+            </span>
           </h1>
           <p className="text-justify w-[80%] text-paragraph">
             Discover and share authentic travel experiences with our
@@ -35,7 +39,7 @@ const LandingPage = () => {
           </p>
           <Link
             to={`/register`}
-            className="w-[40%] text-center font-bold text-xl py-3 text-white rounded-md bg-primary hover:opacity-80 "
+            className="w-[40%] text-center text-xl py-3 font-semibold border-2 rounded-lg px-7 text-primary border-primary hover:text-white hover:bg-primary hover:border-primary"
           >
             Begin your journey now!
           </Link>
@@ -135,6 +139,29 @@ const LandingPage = () => {
       - community
     */}
       </section>
+
+      {/* Regist */}
+      <section id="registAd" className="py-10 px-52">
+        <div className="w-full p-10 rounded-xl bg-sky-100">
+          <h2 className="text-5xl font-medium">
+            Lorem ipsum dolor sit amet consectetur?
+          </h2>
+          <p className="text-paragraph w-[70%] my-9">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+            eligendi aspernatur excepturi tempore iusto recusandae laudantium
+            exercitationem ullam Incidunt, earum! Maiores veritatis inventore
+            dolorem.
+          </p>
+          <Link
+            to={`/register`}
+            className="py-3 font-semibold border-2 rounded-lg px-7 text-primary border-primary hover:text-white hover:bg-primary hover:border-primary"
+          >
+            Join us now
+          </Link>
+        </div>
+      </section>
+
+      <Popular />
 
       <Footer />
     </div>
