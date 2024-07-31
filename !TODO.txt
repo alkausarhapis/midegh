@@ -3,9 +3,8 @@
 # UI mock up etc
 
 >CURR
-# Setup API unsplash
-# Hard code data gambarnya
-# Front end Landing (Pops)
+# Pelajarin kodenya
+# Cek unsplash API ke page lain
 # Front end User home (search, card slider, )
 # Front end List
 
