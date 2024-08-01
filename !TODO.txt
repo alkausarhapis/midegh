@@ -2,13 +2,9 @@
 # API?
 # UI mock up etc
 
->CURR
-# Pelajarin kodenya
-# Cek unsplash API ke page lain
-# Front end User home (search, card slider, )
+>CURR (tenggat 9 aug?)
+# Front end User home
 # Front end List
-
->NEXT
 # Front end Login admin
 # Front end dashboard
 # Front end add wisata?
@@ -16,5 +12,6 @@
 >NEXT
 # Integrasi firebase pake ENV
 # Login & Register dengan context & token
+# Rapihin front-end
 # Google login
 # TBA
