@@ -65,7 +65,7 @@ const Popular = () => {
         if (!item.foto) {
           try {
             const response = await searchPhotos(item.lokasi);
-            const photoUrl = response.data.results[0]?.urls?.small;
+            const photoUrl = response.data.results[0]?.urls?.regular;
             if (photoUrl) {
               updatedPhotos[item.id] = photoUrl;
             }
