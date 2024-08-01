@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import cardimg1 from "../assets/hilllandscape.jpg";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BiHeart, BiSolidCheckCircle } from "react-icons/bi";
+import { searchPhotos } from "../helpers/useAxios";
+import img1 from "../assets/hilllandscape.jpg";
 
 const Popular = () => {
   const data = [
@@ -11,7 +12,7 @@ const Popular = () => {
       lokasi: "Tokyo, Japan",
       isi: "Tokyo is a city that blends modernity with tradition. Skyscrapers light up the night while temples offer a serene escape. A true metropolis that never sleeps, offering endless excitement and beauty.",
       rating: 3,
-      foto: cardimg1,
+      foto: "",
     },
     {
       id: "9101ijkl",
@@ -19,7 +20,7 @@ const Popular = () => {
       lokasi: "Venice, Italy",
       isi: "Venice is a city like no other, where streets are made of water and gondolas are the preferred mode of transport. The rich history and stunning architecture make it a must-visit destination.",
       rating: 4,
-      foto: cardimg1,
+      foto: "",
     },
     {
       id: "1213mnop",
@@ -27,7 +28,7 @@ const Popular = () => {
       lokasi: "Beijing, China",
       isi: "The Great Wall of China is a marvel of ancient engineering. Stretching over 13,000 miles, it offers breathtaking views and a deep dive into the history and culture of China.",
       rating: 5,
-      foto: cardimg1,
+      foto: "",
     },
     {
       id: "1415qrst",
@@ -35,7 +36,7 @@ const Popular = () => {
       lokasi: "Nairobi, Kenya",
       isi: "Kenya is a land of diverse wildlife and stunning landscapes. A safari here offers close encounters with lions, elephants, and giraffes in their natural habitat. A once-in-a-lifetime experience for nature lovers.",
       rating: 2,
-      foto: cardimg1,
+      foto: "",
     },
     {
       id: "1617uvwx",
@@ -43,7 +44,7 @@ const Popular = () => {
       lokasi: "Santorini, Greece",
       isi: "Santorini is famous for its white-washed buildings with blue domes, stunning sunsets, and crystal-clear waters. It's a romantic destination perfect for honeymooners and travelers seeking tranquility.",
       rating: 4,
-      foto: cardimg1,
+      foto: "",
     },
     {
       id: "1819yzab",
@@ -51,9 +52,33 @@ const Popular = () => {
       lokasi: "Patagonia, Argentina",
       isi: "Patagonia offers rugged landscapes and a sense of adventure. From glaciers to mountain peaks, it's a paradise for hikers and outdoor enthusiasts looking to connect with nature on a grand scale.",
       rating: 1,
-      foto: cardimg1,
+      foto: img1,
     },
   ];
+
+  const [photos, setPhotos] = useState({});
+
+  useEffect(() => {
+    const fetchPhotos = async () => {
+      const updatedPhotos = {};
+      for (const item of data) {
+        if (!item.foto) {
+          try {
+            const response = await searchPhotos(item.lokasi);
+            const photoUrl = response.data.results[0]?.urls?.small;
+            if (photoUrl) {
+              updatedPhotos[item.id] = photoUrl;
+            }
+          } catch (error) {
+            console.error("Error fetching photo from Unsplash:", error);
+          }
+        }
+      }
+      setPhotos(updatedPhotos);
+    };
+
+    fetchPhotos();
+  }, [data]);
 
   const [itemsToShow, setItemsToShow] = useState(3);
 
@@ -78,7 +103,7 @@ const Popular = () => {
           >
             <div className="relative mb-1 h-60">
               <img
-                src={item.foto}
+                src={item.foto || photos[item.id]} // Gunakan foto dari state jika ada
                 alt={item.judul}
                 className="object-cover object-center w-full h-full mb-2 rounded-lg hover:opacity-80"
               />
