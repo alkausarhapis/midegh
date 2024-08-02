@@ -3,15 +3,17 @@
 # UI mock up etc
 
 >CURR (tenggat 9 aug?)
-# Front end User home
-# Front end List
+# FE Register as guide
 # Front end Login admin
 # Front end dashboard
 # Front end add wisata?
 
 >NEXT
 # Integrasi firebase pake ENV
+# BLOG builder with preview (pilih layout dulu?)
 # Login & Register dengan context & token
 # Rapihin front-end
 # Google login
 # TBA
+
+// Jangan lupa date di collection blog 
