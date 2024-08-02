@@ -5,7 +5,9 @@ import icon from "../assets/navicon.png";
 const Navbar = () => {
   return (
     <nav className="flex items-center justify-between py-2 text-lg px-14 max-w-screen">
-      <img src={icon} alt="" className="mr-2 w-44" />
+      <Link to={`/`}>
+        <img src={icon} alt="" className="mr-2 w-44" />
+      </Link>
       <div className="flex items-center gap-5">
         <Link to={`/login`} className="text-paragraph hover:opacity-75">
           Login

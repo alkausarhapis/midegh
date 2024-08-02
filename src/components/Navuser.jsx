@@ -22,10 +22,14 @@ const Navuser = () => {
   }, [dropdownRef]);
 
   return (
-    <nav className="fixed left-0 right-0 z-30 flex items-center justify-between py-2 text-lg shadow-md px-14">
-      <img src={icon} alt="" className="w-40 mr-2" />
+    <nav className="fixed left-0 right-0 z-30 flex items-center justify-between py-2 text-lg bg-white shadow-md px-14">
+      <Link to={`/home`}>
+        <img src={icon} alt="" className="w-40 mr-2" />
+      </Link>
       <div className="flex items-center gap-2">
-        <BiHeartCircle className="text-5xl" />
+        <Link className="hover:opacity-80" to={`/list`}>
+          <BiHeartCircle className="text-5xl" />
+        </Link>
 
         <div className="relative" ref={dropdownRef}>
           <BiSolidUserCircle
