@@ -1,12 +1,12 @@
 import React from "react";
 import Sidebaradm from "../../components/Sidebaradm";
 
-const Dashboard = () => {
+const Data = () => {
   return (
-    <div className="h-screen p-5">
+    <div>
       <Sidebaradm />
     </div>
   );
 };
 
-export default Dashboard;
+export default Data;

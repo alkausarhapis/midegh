@@ -20,7 +20,7 @@ const Footer = () => {
             <a href="">Demo</a>
           </li>
           <li>
-            <a href="">Github</a>
+            <a href="">Privacy policy</a>
           </li>
           <li>
             <a href="">Credit</a>
