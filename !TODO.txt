@@ -3,15 +3,16 @@
 # UI mock up etc
 
 >CURR (tenggat 9 aug?)
-# FE Register as guide
-# Front end Login admin
-# Front end dashboard
-# Front end add wisata?
+# Front end dashboard guider
+# Front end add blog wisata (realtime preview, select layout)
+# Spesifikin front end sesuai dengan case
+# FE Register as guide?
 
 >NEXT
-# Integrasi firebase pake ENV
 # BLOG builder with preview (pilih layout dulu?)
 # Login & Register dengan context & token
+# Guide register logic
+# BE blog handler
 # Rapihin front-end
 # Google login
 # TBA
