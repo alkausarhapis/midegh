@@ -2,18 +2,19 @@
 # API?
 # UI mock up etc
 
->CURR (tenggat 9 aug?)
+>CURR
 # Front end dashboard guider
+# Setup toast
+# Setup firebase
+# Login & Register dengan context & token multi user
+# BE blog handler
 # Front end add blog wisata (realtime preview, select layout)
-# Spesifikin front end sesuai dengan case
-# FE Register as guide?
 
 >NEXT
 # BLOG builder with preview (pilih layout dulu?)
-# Login & Register dengan context & token
 # Guide register logic
-# BE blog handler
 # Rapihin front-end
+# Spesifikin front end sesuai dengan case
 # Google login
 # TBA
 
