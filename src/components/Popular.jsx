@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BiHeart, BiSolidCheckCircle } from "react-icons/bi";
-import { searchPhotos } from "../helpers/useAxios";
+import { searchPhotos } from "../hooks/useAxios";
 import img1 from "../assets/hilllandscape.jpg";
 
 const Popular = () => {

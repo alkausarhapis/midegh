@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Home from "./pages/user/Home";
 import Dashboard from "./pages/admin/Dashboard";
 import List from "./pages/user/List";
+import Loginadm from "./pages/admin/Loginadm";
 
 function App() {
   return (
@@ -15,11 +16,13 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/list" element={<List />} />
         {/* TODO: Ini harus bisa diakses setelah login (buatin context) */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin" element={<Dashboard />} />
+        <Route path="/admin/data" element={<Dashboard />} />
         {/* TODO: Ini harus bisa diakses setelah login (buatin context) */}
 
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin/login" element={<Loginadm />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
