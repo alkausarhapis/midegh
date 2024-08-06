@@ -3,19 +3,19 @@
 # UI mock up etc
 
 >CURR
-# Front end dashboard guider
+# Front end add blog wisata (realtime preview, onboarding > real blog)
 # Setup toast
 # Setup firebase
 # Login & Register dengan context & token multi user
 # BE blog handler
-# Front end add blog wisata (realtime preview, select layout)
 
 >NEXT
 # BLOG builder with preview (pilih layout dulu?)
-# Guide register logic
 # Rapihin front-end
 # Spesifikin front end sesuai dengan case
 # Google login
 # TBA
+# Guide register logic (ada role di document user, role isinya user, guide, admin)
 
 // Jangan lupa date di collection blog 
+// Custom id document blognya / slug?
