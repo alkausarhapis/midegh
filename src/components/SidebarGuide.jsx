@@ -8,7 +8,7 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import icon from "../assets/iconflat.svg";
 
-const Sidebaradm = () => {
+const SidebarGuide = () => {
   const [dropdown, setDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -29,11 +29,11 @@ const Sidebaradm = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className="box-border h-screen w-fit bg-secondary shadow-cust">
+    <div className="box-border h-screen w-fit bg-primary shadow-cust">
       <div className="flex flex-col items-center justify-between w-full h-full">
         <div className="w-full">
           <div className="p-5">
-            <Link to={`/admin`}>
+            <Link to={`/guide`}>
               <img src={icon} alt="Logo" className="w-12" />
             </Link>
           </div>
@@ -45,21 +45,21 @@ const Sidebaradm = () => {
           */}
 
           <ul className="flex flex-col items-center w-full mt-5">
-            <Link className="w-full" to={`/admin`}>
+            <Link className="w-full" to={`/guide`}>
               <li
                 className={`w-full cursor-pointer flex justify-center items-center py-4 ${
-                  pathname === "/admin" ? "bg-slate-600" : ""
-                } hover:bg-slate-600`}
+                  pathname === "/guide" ? "bg-cyan-600" : ""
+                } hover:bg-cyan-600`}
               >
                 <BiSolidHome className="text-4xl text-white" />
               </li>
             </Link>
 
-            <Link className="w-full" to={`/admin/data`}>
+            <Link className="w-full" to={`/`}>
               <li
                 className={`w-full cursor-pointer flex justify-center items-center py-4 ${
-                  pathname === "/admin/data" ? "bg-slate-600" : ""
-                } hover:bg-slate-600`}
+                  pathname === "/" ? "bg-cyan-600" : ""
+                } hover:bg-cyan-600`}
               >
                 <BiSolidNotepad className="text-4xl text-white" />
               </li>
@@ -68,8 +68,8 @@ const Sidebaradm = () => {
             <Link className="w-full" to={`/`}>
               <li
                 className={`w-full cursor-pointer flex justify-center items-center py-4 ${
-                  pathname === "/" ? "bg-slate-600" : ""
-                } hover:bg-slate-600`}
+                  pathname === "/" ? "bg-cyan-600" : ""
+                } hover:bg-cyan-600`}
               >
                 <BiTable className="text-4xl text-white" />
               </li>
@@ -103,4 +103,4 @@ const Sidebaradm = () => {
   );
 };
 
-export default Sidebaradm;
+export default SidebarGuide;

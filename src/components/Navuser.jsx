@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import icon from "../assets/navicon.png";
-import { BiHeartCircle, BiSolidUserCircle } from "react-icons/bi";
+import { BiHeartCircle, BiSolidCog, BiSolidUserCircle } from "react-icons/bi";
 
 const Navuser = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -28,7 +28,11 @@ const Navuser = () => {
       </Link>
       <div className="flex items-center gap-2">
         <Link className="hover:opacity-80" to={`/list`}>
-          <BiHeartCircle className="text-5xl" />
+          <BiHeartCircle className="text-4xl" />
+        </Link>
+
+        <Link className="hover:opacity-80" to={`/guide`}>
+          <BiSolidCog className="text-4xl" />
         </Link>
 
         <div className="relative" ref={dropdownRef}>

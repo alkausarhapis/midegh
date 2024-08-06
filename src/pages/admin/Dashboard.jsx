@@ -3,7 +3,7 @@ import Sidebaradm from "../../components/Sidebaradm";
 
 const Dashboard = () => {
   return (
-    <div className="h-screen p-5">
+    <div>
       <Sidebaradm />
     </div>
   );

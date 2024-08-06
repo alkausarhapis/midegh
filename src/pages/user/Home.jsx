@@ -58,6 +58,8 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Your blog */}
+
       <Popular />
 
       {/* TOP user (by fav all the user get) */}
