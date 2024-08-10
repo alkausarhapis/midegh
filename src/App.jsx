@@ -7,6 +7,8 @@ import Home from "./pages/user/Home";
 import Dashboard from "./pages/admin/Dashboard";
 import List from "./pages/user/List";
 import Loginadm from "./pages/admin/Loginadm";
+import GuideDashboard from "./pages/user/guide/GuideDashboard";
+import Onboarding from "./pages/user/guide/Onboarding";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         {/* TODO: Ini harus bisa diakses setelah login (buatin context) */}
         <Route path="/home" element={<Home />} />
         <Route path="/list" element={<List />} />
+        <Route path="/guide" element={<GuideDashboard />} />
+        <Route path="/onb" element={<Onboarding />} />
         {/* TODO: Ini harus bisa diakses setelah login (buatin context) */}
         <Route path="/admin" element={<Dashboard />} />
         <Route path="/admin/data" element={<Dashboard />} />

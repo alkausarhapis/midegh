@@ -1,6 +1,5 @@
 >SETUP
 # API?
-# UI mock up etc
 
 >CURR
 # Front end add blog wisata (realtime preview, onboarding > real blog)
@@ -10,7 +9,6 @@
 # BE blog handler
 
 >NEXT
-# BLOG builder with preview (pilih layout dulu?)
 # Rapihin front-end
 # Spesifikin front end sesuai dengan case
 # Google login
