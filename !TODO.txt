@@ -1,9 +1,8 @@
 >SETUP
-# API?
+# API (Drag n Drop)
 
 >CURR
-# Front end add blog wisata (realtime preview, onboarding > real blog)
-# Setup toast
+# Front end add blog wisata (realtime preview, onboarding > save to draft > real blog preview)
 # Setup firebase
 # Login & Register dengan context & token multi user
 # BE blog handler
