@@ -1,9 +1,10 @@
-import React from "react";
+import OnboardingForm from "../../../components/OnboardingForm";
 
 const Onboarding = () => {
   return (
-    <div>
-      <section className="container flex items-center justify-center w-1/2 mt-4">
+    <div className="flex flex-col justify-center h-screen gap-10">
+      <div className="container flex items-center justify-center w-1/2 mt-4">
+        {/* Step Progress Bar */}
         <div className="relative flex flex-col items-center justify-center">
           <div className="flex items-center justify-center text-xl font-bold text-center text-white rounded-full w-14 h-14 bg-primary">
             1
@@ -34,11 +35,11 @@ const Onboarding = () => {
             Publish
           </div>
         </div>
-      </section>
+      </div>
 
-      <section>
-        <form action=""></form>
-      </section>
+      <div className="w-full">
+        <OnboardingForm />
+      </div>
     </div>
   );
 };
