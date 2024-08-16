@@ -9,6 +9,7 @@ import List from "./pages/user/List";
 import Loginadm from "./pages/admin/Loginadm";
 import GuideDashboard from "./pages/user/guide/GuideDashboard";
 import Onboarding from "./pages/user/guide/Onboarding";
+import AddBlog from "./pages/user/guide/AddBlog";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/list" element={<List />} />
         <Route path="/guide" element={<GuideDashboard />} />
         <Route path="/onb" element={<Onboarding />} />
+        <Route path="/addblog" element={<AddBlog />} />
         {/* TODO: Ini harus bisa diakses setelah login (buatin context) */}
         <Route path="/admin" element={<Dashboard />} />
         <Route path="/admin/data" element={<Dashboard />} />
