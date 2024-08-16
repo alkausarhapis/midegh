@@ -2,11 +2,10 @@
 # API (Drag n Drop)
 
 >CURR
-# Front end add blog wisata (onboarding > save to draft > real blog preview)
-# Benerin route biar rapih
 # Setup firebase
 # Login & Register dengan context & token multi user
 # BE blog handler
+# Benerin route biar rapih
 
 >NEXT
 # Rapihin front-end
