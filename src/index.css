@@ -7,3 +7,10 @@
 body {
   font-family: "inter";
 }
+
+/* quill */
+.ql-editor {
+  font-size: 1.5rem;
+  font-family: "inter";
+  min-height: 200px;
+}
