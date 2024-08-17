@@ -1,9 +1,8 @@
 >SETUP
-# API (Drag n Drop)
+# API
 
 >CURR
-# Setup firebase
-# Login & Register dengan context & token multi user
+# Login dengan context & token multi user
 # BE blog handler
 # Benerin route biar rapih
 
