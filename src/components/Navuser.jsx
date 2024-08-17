@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/navicon.png";
 import { BiHeartCircle, BiSolidCog, BiSolidUserCircle } from "react-icons/bi";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
 
 const Navuser = () => {
   const [dropdown, setDropdown] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   //  handleclick outside
   useEffect(() => {
@@ -20,6 +23,11 @@ const Navuser = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownRef]);
+
+  const logout = async () => {
+    await signOut(auth);
+    navigate("/login");
+  };
 
   return (
     <nav className="fixed left-0 right-0 z-30 flex items-center justify-between py-2 text-lg bg-white shadow-md px-14">
@@ -48,9 +56,12 @@ const Navuser = () => {
                 <li className="px-3 pb-3">email@email.com</li>
                 <hr className="border-black" />
                 <li>
-                  <Link className="block p-3 text-red-500 hover:bg-gray-300">
+                  <span
+                    onClick={logout}
+                    className="block p-3 text-red-500 cursor-pointer hover:bg-gray-300"
+                  >
                     Log out
-                  </Link>
+                  </span>
                 </li>
               </ul>
             </div>

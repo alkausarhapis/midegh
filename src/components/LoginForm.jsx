@@ -1,12 +1,60 @@
 import React, { useState } from "react";
 import { BiHide, BiLock, BiShow, BiUser } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { auth, db } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const LoginForm = () => {
   const [showPassword, setShowPass] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const toggleShowPassword = () => {
     setShowPass(!showPassword);
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      let email = username;
+
+      if (!username.includes("@")) {
+        const q = query(
+          collection(db, "Users"),
+          where("username", "==", username)
+        );
+
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+          const userDoc = querySnapshot.docs[0];
+          email = userDoc.data().email;
+        }
+      }
+
+      await signInWithEmailAndPassword(auth, email, password);
+      toast.success("Login successfully", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        pauseOnHover: false,
+        progress: undefined,
+      });
+      setTimeout(() => {
+        navigate("/home");
+      }, 2000);
+    } catch {
+      toast.error("Username or password wrong", {
+        position: "top-right",
+        autoClose: 3000,
+        pauseOnHover: false,
+        hideProgressBar: false,
+        progress: undefined,
+      });
+    }
   };
 
   return (
@@ -14,15 +62,17 @@ const LoginForm = () => {
       <h1 className="text-4xl font-bold">Welcome Back!</h1>
       <p className="mb-8 text-tertiary">Continue your trip, by logging in</p>
 
-      <form onSubmit="" className="w-[60%]">
+      <form onSubmit={handleLogin} className="w-[60%]">
         <div className="relative mb-4 text-tertiary border-tertiary focus-within:text-secondary focus-within:border-secondary">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <BiUser className="text-xl" />
           </span>
           <input
             type="text"
-            placeholder="Username"
+            required
+            placeholder="Email/Username"
             className="w-full p-2 pl-10 border-2 rounded-sm outline-none placeholder:text-tertiary"
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
 
@@ -33,7 +83,9 @@ const LoginForm = () => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
+            required
             className="w-full p-2 pl-10 border-2 rounded-sm outline-none placeholder:text-tertiary"
+            onChange={(e) => setPassword(e.target.value)}
           />
           <span
             onClick={toggleShowPassword}
@@ -58,7 +110,7 @@ const LoginForm = () => {
         </p>
       </form>
 
-      <p class="text-tertiary w-full text-center my-4 overflow-hidden before:h-[1.3px] after:h-[1.3px] after:bg-tertiary after:inline-block after:relative after:align-middle after:w-1/4 before:bg-tertiary before:inline-block before:relative before:align-middle before:w-1/4 before:right-2 after:left-2">
+      <p className="text-tertiary w-full text-center my-4 overflow-hidden before:h-[1.3px] after:h-[1.3px] after:bg-tertiary after:inline-block after:relative after:align-middle after:w-1/4 before:bg-tertiary before:inline-block before:relative before:align-middle before:w-1/4 before:right-2 after:left-2">
         or
       </p>
 
@@ -70,6 +122,8 @@ const LoginForm = () => {
         />
         Continue with Google
       </button>
+
+      <ToastContainer />
     </div>
   );
 };

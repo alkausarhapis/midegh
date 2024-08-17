@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 import { BiEnvelope, BiHide, BiLock, BiShow, BiUser } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { auth, db } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 const RegistForm = () => {
   const [showPassword, setShowPass] = useState(false);
   const [showConfirmPassword, setShowConfirmPass] = useState(false);
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [conPassword, setConPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const toggleShowPassword = () => {
     setShowPass(!showPassword);
@@ -12,12 +23,44 @@ const RegistForm = () => {
 
   const toggleShowConfirmPass = () => setShowConfirmPass(!showConfirmPassword);
 
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      if (user) {
+        await setDoc(doc(db, "Users", user.uid), {
+          email: user.email,
+          username: username,
+          role: "user",
+        });
+      }
+      // popup berhasil didaftarkan dengan toastify
+      toast.success("User registered successfully!", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        progress: undefined,
+      });
+      setTimeout(() => {
+        navigate("/login");
+      }, 4000);
+    } catch (error) {
+      toast.error("This email already registered!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        progress: undefined,
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen text-center select-none">
       <h1 className="text-4xl font-bold">Create Account</h1>
       <p className="mb-8 text-tertiary">Register to start your trip</p>
 
-      <form onSubmit="" className="w-[60%]">
+      <form onSubmit={handleRegister} className="w-[60%]">
         <div className="relative mb-4 text-tertiary border-tertiary focus-within:text-secondary focus-within:border-secondary">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <BiEnvelope className="text-xl" />
@@ -27,6 +70,7 @@ const RegistForm = () => {
             placeholder="Email"
             required
             className="w-full p-2 pl-10 border-2 rounded-sm outline-none placeholder:text-tertiary"
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -39,6 +83,7 @@ const RegistForm = () => {
             placeholder="Username"
             required
             className="w-full p-2 pl-10 border-2 rounded-sm outline-none placeholder:text-tertiary"
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
 
@@ -50,7 +95,8 @@ const RegistForm = () => {
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             required
-            className="w-full p-2 pl-10 border-2 rounded-sm outline-none placeholder:text-tertiary"
+            className="w-full p-2 pl-10 border-2 rounded-sm outline-none pr-14 placeholder:text-tertiary"
+            onChange={(e) => setPassword(e.target.value)}
           />
           <span
             onClick={toggleShowPassword}
@@ -72,7 +118,8 @@ const RegistForm = () => {
             type={showConfirmPassword ? "text" : "password"}
             placeholder="Confirm password"
             required
-            className="w-full p-2 pl-10 border-2 rounded-sm outline-none placeholder:text-tertiary"
+            className="w-full p-2 pl-10 border-2 rounded-sm outline-none pr-14 placeholder:text-tertiary"
+            onChange={(e) => setConPassword(e.target.value)}
           />
           <span
             onClick={toggleShowConfirmPass}
@@ -97,7 +144,7 @@ const RegistForm = () => {
         </p>
       </form>
 
-      <p class="text-tertiary w-full text-center my-4 overflow-hidden before:h-[1.3px] after:h-[1.3px] after:bg-tertiary after:inline-block after:relative after:align-middle after:w-1/4 before:bg-tertiary before:inline-block before:relative before:align-middle before:w-1/4 before:right-2 after:left-2">
+      <p className="text-tertiary w-full text-center my-4 overflow-hidden before:h-[1.3px] after:h-[1.3px] after:bg-tertiary after:inline-block after:relative after:align-middle after:w-1/4 before:bg-tertiary before:inline-block before:relative before:align-middle before:w-1/4 before:right-2 after:left-2">
         or
       </p>
 
@@ -109,6 +156,8 @@ const RegistForm = () => {
         />
         Continue with Google
       </button>
+
+      <ToastContainer />
     </div>
   );
 };
