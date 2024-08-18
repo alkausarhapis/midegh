@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BiHide, BiLock, BiShow, BiUser } from "react-icons/bi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { auth, db } from "../firebase";
@@ -12,6 +12,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/home";
 
   const toggleShowPassword = () => {
     setShowPass(!showPassword);
@@ -44,7 +46,7 @@ const LoginForm = () => {
         progress: undefined,
       });
       setTimeout(() => {
-        navigate("/home");
+        navigate(from, { replace: true });
       }, 2000);
     } catch {
       toast.error("Username or password wrong", {

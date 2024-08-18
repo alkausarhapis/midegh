@@ -10,28 +10,39 @@ import Loginadm from "./pages/admin/Loginadm";
 import GuideDashboard from "./pages/user/guide/GuideDashboard";
 import Onboarding from "./pages/user/guide/Onboarding";
 import AddBlog from "./pages/user/guide/AddBlog";
+import Unauthorized from "./pages/Unauthorized";
+import { AuthProvider } from "./hooks/useAuth";
+import RequiredAuth from "./components/RequiredAuth";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        {/* TODO: Ini harus bisa diakses setelah login (buatin context) */}
-        <Route path="/home" element={<Home />} />
-        <Route path="/list" element={<List />} />
-        <Route path="/guide" element={<GuideDashboard />} />
-        <Route path="/onb" element={<Onboarding />} />
-        <Route path="/addblog" element={<AddBlog />} />
-        {/* TODO: Ini harus bisa diakses setelah login (buatin context) */}
-        <Route path="/admin" element={<Dashboard />} />
-        <Route path="/admin/data" element={<Dashboard />} />
-        {/* TODO: Ini harus bisa diakses setelah login (buatin context) */}
+      <AuthProvider>
+        <Routes>
+          <Route element={<RequiredAuth allowedRoles={"user"} />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/list" element={<List />} />
+          </Route>
 
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin/login" element={<Loginadm />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          <Route element={<RequiredAuth allowedRoles={"guide"} />}>
+            <Route path="/guide" element={<GuideDashboard />} />
+            <Route path="/onb" element={<Onboarding />} />
+            <Route path="/addblog" element={<AddBlog />} />
+          </Route>
+
+          <Route element={<RequiredAuth allowedRoles={"admin"} />}>
+            <Route path="/admin" element={<Dashboard />} />
+            <Route path="/admin/data" element={<Dashboard />} />
+          </Route>
+
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin/login" element={<Loginadm />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/unauthorized" element={<Unauthorized />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

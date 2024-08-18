@@ -4,11 +4,13 @@ import icon from "../assets/navicon.png";
 import { BiHeartCircle, BiSolidCog, BiSolidUserCircle } from "react-icons/bi";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
+import { useAuth } from "../hooks/useAuth";
 
 const Navuser = () => {
   const [dropdown, setDropdown] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
+  const { userData } = useAuth();
 
   //  handleclick outside
   useEffect(() => {
@@ -52,8 +54,8 @@ const Navuser = () => {
           {dropdown && (
             <div className="absolute right-0 z-20 w-64 mt-2 bg-white border rounded-md border-tertiary">
               <ul>
-                <li className="px-3 pt-3">Username</li>
-                <li className="px-3 pb-3">email@email.com</li>
+                <li className="px-3 pt-3">{userData.username}</li>
+                <li className="px-3 pb-3">{userData.email}</li>
                 <hr className="border-black" />
                 <li>
                   <span
