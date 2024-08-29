@@ -41,9 +41,15 @@ const Navuser = () => {
           <BiHeartCircle className="text-4xl" />
         </Link>
 
-        <Link className="hover:opacity-80" to={`/guide`}>
-          <BiSolidCog className="text-4xl" />
-        </Link>
+        {userData.role == "guide" ? (
+          <Link className="hover:opacity-80" to={`/guide`}>
+            <BiSolidCog className="text-4xl" />
+          </Link>
+        ) : (
+          <div className="p-2 transition duration-150 bg-transparent border-2 rounded-md cursor-pointer hover:bg-primary text-secondary border-primary">
+            Be a guider!
+          </div>
+        )}
 
         <div className="relative" ref={dropdownRef}>
           <BiSolidUserCircle

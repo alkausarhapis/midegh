@@ -19,22 +19,26 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          <Route element={<RequiredAuth allowedRoles={"user"} />}>
+          {/* Routes for both "user" and "guide" roles */}
+          <Route element={<RequiredAuth allowedRoles={["user", "guide"]} />}>
             <Route path="/home" element={<Home />} />
             <Route path="/list" element={<List />} />
           </Route>
 
-          <Route element={<RequiredAuth allowedRoles={"guide"} />}>
+          {/* Routes specific to the "guide" role */}
+          <Route element={<RequiredAuth allowedRoles={["guide"]} />}>
             <Route path="/guide" element={<GuideDashboard />} />
             <Route path="/onb" element={<Onboarding />} />
             <Route path="/addblog" element={<AddBlog />} />
           </Route>
 
-          <Route element={<RequiredAuth allowedRoles={"admin"} />}>
+          {/* Routes specific to the "admin" role */}
+          <Route element={<RequiredAuth allowedRoles={["admin"]} />}>
             <Route path="/admin" element={<Dashboard />} />
             <Route path="/admin/data" element={<Dashboard />} />
           </Route>
 
+          {/* Public Routes */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin/login" element={<Loginadm />} />

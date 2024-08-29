@@ -14,6 +14,7 @@ const RegistForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [conPassword, setConPassword] = useState("");
+  const [passMatch, setPassMatch] = useState(true);
 
   const navigate = useNavigate();
 
@@ -26,6 +27,13 @@ const RegistForm = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
+      if (password != conPassword) {
+        setPassMatch(false);
+        return;
+      } else {
+        setPassMatch(true);
+      }
+
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
       if (user) {
@@ -56,7 +64,7 @@ const RegistForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen text-center select-none">
+    <div className="flex flex-col items-center justify-center w-full h-screen select-none">
       <h1 className="text-4xl font-bold">Create Account</h1>
       <p className="mb-8 text-tertiary">Register to start your trip</p>
 
@@ -95,7 +103,11 @@ const RegistForm = () => {
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             required
-            className="w-full p-2 pl-10 border-2 rounded-sm outline-none pr-14 placeholder:text-tertiary"
+            className={
+              passMatch
+                ? "w-full p-2 pl-10 border-2 rounded-sm outline-none pr-14 placeholder:text-tertiary"
+                : "w-full p-2 pl-10 border-2 rounded-sm border-red-500 outline-none pr-14 placeholder:text-tertiary"
+            }
             onChange={(e) => setPassword(e.target.value)}
           />
           <span
@@ -110,7 +122,7 @@ const RegistForm = () => {
           </span>
         </div>
 
-        <div className="relative mb-4 text-tertiary border-tertiary focus-within:text-secondary focus-within:border-secondary">
+        <div className="relative text-tertiary border-tertiary focus-within:text-secondary focus-within:border-secondary">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <BiLock className="text-xl" />
           </span>
@@ -118,7 +130,11 @@ const RegistForm = () => {
             type={showConfirmPassword ? "text" : "password"}
             placeholder="Confirm password"
             required
-            className="w-full p-2 pl-10 border-2 rounded-sm outline-none pr-14 placeholder:text-tertiary"
+            className={
+              passMatch
+                ? "w-full p-2 pl-10 border-2 rounded-sm outline-none pr-14 placeholder:text-tertiary"
+                : "w-full p-2 pl-10 border-2 rounded-sm border-red-500 outline-none pr-14 placeholder:text-tertiary"
+            }
             onChange={(e) => setConPassword(e.target.value)}
           />
           <span
@@ -133,10 +149,18 @@ const RegistForm = () => {
           </span>
         </div>
 
-        <button className="p-2 bg-primary w-[100%] font-semibold text-white hover:opacity-85">
+        {passMatch ? (
+          <br />
+        ) : (
+          <small className="w-full text-left text-red-500">
+            Pasword are not matching
+          </small>
+        )}
+
+        <button className="mt-3 p-2 bg-primary w-[100%] font-semibold text-white hover:opacity-85">
           Register
         </button>
-        <p className="mt-3 text-sm">
+        <p className="mt-3 text-sm text-center">
           Already have an account?{" "}
           <Link className="underline hover:opacity-60" to={`/login`}>
             Login here
