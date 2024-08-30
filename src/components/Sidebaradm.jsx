@@ -5,12 +5,22 @@ import {
   BiSolidUserCircle,
   BiTable,
 } from "react-icons/bi";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import icon from "../assets/iconflat.svg";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
+import { useAuth } from "../hooks/useAuth";
 
 const Sidebaradm = () => {
   const [dropdown, setDropdown] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
+  const { userData } = useAuth();
+
+  const logout = async () => {
+    await signOut(auth);
+    navigate("/admin/login");
+  };
 
   // Handle click outside to close dropdown
   useEffect(() => {
@@ -86,13 +96,16 @@ const Sidebaradm = () => {
           {dropdown && (
             <div className="absolute top-0 z-20 w-64 mt-[-4rem] bg-white border rounded-md left-20 border-tertiary">
               <ul>
-                <li className="px-3 pt-3">Username</li>
-                <li className="px-3 pb-3">email@email.com</li>
+                <li className="px-3 pt-3">{userData.username}</li>
+                <li className="px-3 pb-3">{userData.email}</li>
                 <hr className="border-black" />
                 <li>
-                  <Link className="block p-3 text-red-500 hover:bg-gray-300">
+                  <span
+                    onClick={logout}
+                    className="block p-3 text-red-500 hover:bg-gray-300"
+                  >
                     Log out
-                  </Link>
+                  </span>
                 </li>
               </ul>
             </div>

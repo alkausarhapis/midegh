@@ -13,6 +13,7 @@ import AddBlog from "./pages/user/guide/AddBlog";
 import Unauthorized from "./pages/Unauthorized";
 import { AuthProvider } from "./hooks/useAuth";
 import RequiredAuth from "./components/RequiredAuth";
+import PublicRoute from "./components/PublicRoute";
 
 function App() {
   return (
@@ -39,10 +40,13 @@ function App() {
           </Route>
 
           {/* Public Routes */}
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/admin/login" element={<Loginadm />} />
-          <Route path="/register" element={<Register />} />
+          <Route element={<PublicRoute />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/admin/login" element={<Loginadm />} />
+            <Route path="/register" element={<Register />} />
+          </Route>
+
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
