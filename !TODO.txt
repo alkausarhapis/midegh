@@ -2,7 +2,7 @@
 # API
 
 >CURR
-# login admin
+# Lanjut add blog (route buat slug, update blog, publish)
 # BE blog handler
 # Benerin route biar rapih
 
