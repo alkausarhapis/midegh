@@ -2,16 +2,10 @@
 # API
 
 >CURR
-# Lanjut add blog (route buat slug, update blog, publish)
-# BE blog handler
-# Benerin route biar rapih
+# Published blog fetching on home
+# Guide register logic (ada role di document user, role isinya user, guide, admin)
 
 >NEXT
-# Rapihin front-end
 # Spesifikin front end sesuai dengan case
 # Google login
 # TBA
-# Guide register logic (ada role di document user, role isinya user, guide, admin)
-
-// Jangan lupa date di collection blog 
-// Custom id document blognya / slug?
