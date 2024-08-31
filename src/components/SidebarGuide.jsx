@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
+  BiSolidFile,
   BiSolidHome,
   BiSolidNotepad,
   BiSolidUserCircle,
@@ -7,7 +8,7 @@ import {
 } from "react-icons/bi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import icon from "../assets/iconflat.svg";
-import { auth } from "../firebase";
+import { auth } from "../utils/firebase";
 import { signOut } from "firebase/auth";
 import { useAuth } from "../hooks/useAuth";
 
@@ -39,7 +40,7 @@ const SidebarGuide = () => {
   };
 
   return (
-    <div className="box-border h-screen w-fit bg-primary shadow-cust">
+    <div className="box-border fixed z-50 float-left h-screen mr-4 w-fit bg-primary shadow-cust">
       <div className="flex flex-col items-center justify-between w-full h-full">
         <div className="w-full">
           <div className="p-5">
@@ -65,13 +66,13 @@ const SidebarGuide = () => {
               </li>
             </Link>
 
-            <Link className="w-full" to={`/`}>
+            <Link className="w-full" to={`/draft`}>
               <li
                 className={`w-full cursor-pointer flex justify-center items-center py-4 ${
-                  pathname === "/" ? "bg-cyan-600" : ""
+                  pathname === "/draft" ? "bg-cyan-600" : ""
                 } hover:bg-cyan-600`}
               >
-                <BiSolidNotepad className="text-4xl text-white" />
+                <BiSolidFile className="text-4xl text-white" />
               </li>
             </Link>
 

@@ -3,7 +3,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import React, { useState } from "react";
 import { BiSolidLock, BiUser } from "react-icons/bi";
 import { useLocation, useNavigate } from "react-router-dom";
-import { auth, db } from "../firebase";
+import { auth, db } from "../utils/firebase";
 
 const LoginadmForm = () => {
   const [username, setUsername] = useState("");

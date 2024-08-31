@@ -8,7 +8,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import icon from "../assets/iconflat.svg";
 import { signOut } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../utils/firebase";
 import { useAuth } from "../hooks/useAuth";
 
 const Sidebaradm = () => {

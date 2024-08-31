@@ -14,6 +14,7 @@ import Unauthorized from "./pages/Unauthorized";
 import { AuthProvider } from "./hooks/useAuth";
 import RequiredAuth from "./components/RequiredAuth";
 import PublicRoute from "./components/PublicRoute";
+import Draft from "./pages/user/guide/Draft";
 
 function App() {
   return (
@@ -30,7 +31,10 @@ function App() {
           <Route element={<RequiredAuth allowedRoles={["guide"]} />}>
             <Route path="/guide" element={<GuideDashboard />} />
             <Route path="/onb" element={<Onboarding />} />
-            <Route path="/addblog" element={<AddBlog />} />
+            <Route path="/draft" element={<Draft />} />
+
+            {/* Gunakan dynamic route */}
+            <Route path="/edit/:slug" element={<AddBlog />} />
           </Route>
 
           {/* Routes specific to the "admin" role */}

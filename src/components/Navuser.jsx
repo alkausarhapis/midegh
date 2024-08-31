@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/navicon.png";
 import { BiHeartCircle, BiSolidCog, BiSolidUserCircle } from "react-icons/bi";
-import { auth } from "../firebase";
+import { auth } from "../utils/firebase";
 import { signOut } from "firebase/auth";
 import { useAuth } from "../hooks/useAuth";
 

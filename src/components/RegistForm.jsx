@@ -4,7 +4,7 @@ import { BiEnvelope, BiHide, BiLock, BiShow, BiUser } from "react-icons/bi";
 import { toast, ToastContainer } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { auth, db } from "../firebase";
+import { auth, db } from "../utils/firebase";
 import { doc, setDoc } from "firebase/firestore";
 
 const RegistForm = () => {

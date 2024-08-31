@@ -3,7 +3,7 @@ import { BiHide, BiLock, BiShow, BiUser } from "react-icons/bi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import { auth, db } from "../utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const LoginForm = () => {
