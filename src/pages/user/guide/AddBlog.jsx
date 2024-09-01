@@ -1,30 +1,29 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import {
   collection,
-  query,
-  where,
-  getDocs,
   doc,
   getDoc,
+  getDocs,
+  query,
   updateDoc,
+  where,
 } from "firebase/firestore";
-import setFirestoreStorage from "../../../utils/setFirestoreStorage"; // Import utilitas Firebase Storage
-import { db } from "../../../utils/firebase"; // Import Firebase configuration
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import {
   BiImageAdd,
   BiSolidCalendar,
   BiSolidMap,
-  BiSolidSave,
   BiSolidUser,
 } from "react-icons/bi";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 import "react-quill/dist/quill.snow.css";
-import { useAuth } from "../../../hooks/useAuth"; // Import custom hook for auth context
+import { useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify"; // Import Toast for notifications
 import "react-toastify/dist/ReactToastify.css"; // Import Toast CSS
+import { useAuth } from "../../../hooks/useAuth"; // Import custom hook for auth context
+import { db } from "../../../utils/firebase"; // Import Firebase configuration
+import setFirestoreStorage from "../../../utils/setFirestoreStorage"; // Import utilitas Firebase Storage
 
 const AddBlog = () => {
   const { slug } = useParams(); // Get slug from URL

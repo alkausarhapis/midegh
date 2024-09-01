@@ -4,6 +4,7 @@ import { BiSearch } from "react-icons/bi";
 import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 import Popular from "../../components/Popular";
+import AllBlogs from "../../components/AllBlogs";
 
 const Home = () => {
   return (
@@ -58,12 +59,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Your blog */}
-
-      <Popular />
-
-      {/* TOP user (by fav all the user get) */}
-
+      <AllBlogs />
       <Footer />
     </div>
   );

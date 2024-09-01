@@ -15,6 +15,7 @@ import { AuthProvider } from "./hooks/useAuth";
 import RequiredAuth from "./components/RequiredAuth";
 import PublicRoute from "./components/PublicRoute";
 import Draft from "./pages/user/guide/Draft";
+import Blog from "./pages/user/Blog";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
             <Route path="/register" element={<Register />} />
           </Route>
 
+          <Route path="/read/:slug" element={<Blog />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
